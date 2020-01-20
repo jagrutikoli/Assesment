@@ -1,0 +1,73 @@
+﻿1. Steps to create VPC and subnets
+
+
+1. Select project in which you want to create vpc and subnet
+2. From the navigation menu
+Inside networking - VPC network - click on the VPc networks
+3. Click on the create vpc network
+Fill in the details like name ,  description.
+4. For the subnets you have two option
+Either create automatically or create manually
+5. For automatic-  inside subnet creation mode  select automatic (it will list down all the subnet in all regions)
+Also select firewall rules whichever you need
+6. Fro custom-  inside subnet creation mode  select custom 
+Give the name of subnet
+Select region
+Give ip address range
+Click on done
+7. In dynamic routing mode
+Select regional or global
+8. Dns server policy 
+        Select policy which is already created or create new one
+9. Click on Create.
+10. Your vpc and subnets will be created.
+
+
+2. Steps to create a service account and add IAM roles which grants access to GCE and GCS only
+1.     Open the Service Accounts page in the Cloud Console.
+2.     Click Select a project, choose your project, and click open
+3.     Click Create Service Account.
+4.     Enter a service account name (friendly display name), an optional description, select a role you wish to grant to the service account, and then click Save
+5.     Open the IAM and Admin page in the Cloud console.
+6.     Click select project, choose a project, and click Open.
+7.     In the left nav, click Service accounts.
+8.     Select a service account that we have created, then click Show info panel. All users who can access that service account are displayed.
+9.     Click Add member.
+10. Add the email address of a project member.
+Select a role for the member to define what actions(roles/
+compute.admin ,roles/storage.admin
+11. ) that member can take against the service account.
+12. Click Add to apply the role to the project member.
+
+
+
+
+
+
+3. Steps to create bucket and transfer files from local to GCS using gsutil
+
+
+4. Steps to create GCE VM and deploy nginx
+
+
+1. From the navigation menu
+Inside compute engine - vm instances
+2. Click on Create  instance
+Give instance name 
+Select regions and zone
+Select machine type
+Select boot disk
+In firewall check on allow http traffic and https traffic
+If you want extra disk  you can add that under disks 
+Click on the create and your vm would be created.
+3. Enable the firewall port  80 
+Write this command on cloud shell
+gcloud compute firewall-rules create allow-80 --allow tcp:80
+4. SSH to instance
+5. To install nginx
+Write this command on instance command line
+Sudo su -
+Apt-get update
+Apt-get install -y nginx
+Service nginx start
+6. Now click on your external ip and if nginx is successfully installed then its page will be shown
